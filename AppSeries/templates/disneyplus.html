@@ -1,33 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disney+</title>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-</head>
-<body>
-    <nav class="navbar navbar-light bg-light static-top">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
-            <a class="btn btn-primary" href="">Netflix</a>
-            <a class="btn btn-primary" href="">Prime Video</a>
-            <a class="btn btn-primary" href="{% url 'hbomax' %}">HBO Max</a>
-            <a class="btn btn-primary" href="{% url 'disneyplus' %}">Disney+</a>
-            <a class="btn btn-primary" href="#signup">Sign Up</a>
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="disney-container" style="position: relative; justify-content: center; width: 100%; min-height: 100vh; overflow: hidden; background-image: url(https://wallpaperstock.net/wallpapers/thumbs1/29345hd.jpg); background-repeat: no-repeat; background-position-x: center; background-position-y: center; background-size: cover; background-attachment: fixed;">
+    <div class="disney-title" style="margin-left: 20px; margin-top: 20px;">
+        <h1 style="color: white;">Disney+</h1>
+    </div>
+    <div class="disney-list" style="margin-left: 40px;">
+
+        {% for seriesDisney in listadisney %}
+
+        <div class="disney-object" style="margin-bottom: 50px;">
+            <div class="disney-data">
+                <img class="disney-object-img" width="400px" height="300px" src="{{ seriesDisney.photo }}" alt="">
+                <p style="color:white ; font-weight: bold; opacity: 0.5;">IMDB {{ seriesDisney.qualification }}</p>
+                <h5 style="color:white; font-weight: bold;">{{ seriesDisney.title }}</h5>
+            </div>
         </div>
-    </nav>
 
-    <h1>Disney+</h1>
+        {% endfor %}
 
-    {% for seriesDisney in listadisney %}
+    </div>
+    <div class="netflix-button" style="margin-bottom: 40px; text-align: center;">
+        <a href="{% url 'disneyForm' %}"><button style="background-color: red; color: white; font-weight: bold;">Agregar serie</button></a>
+    </div>
+</div>
 
-    <img>{{ seriesDisney.photo }}</img>
-    <h5 style="color:black">IMDB {{ seriesDisney.qualification }}</h5>
-    <h3 style="color:black">{{ seriesDisney.title }}</h3>
-
-    {% endfor %}
-</body>
-</html>
+{% endblock %}

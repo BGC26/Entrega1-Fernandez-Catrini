@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ProyectoSeries.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/patriciafernandez/Desktop/cursoCoder-Python/Entrega1-Fernandez-Catrini/AppSeries/templates/'],
+        'DIRS': ['AppSeries/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

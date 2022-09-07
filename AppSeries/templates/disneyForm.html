@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="disneyForm-container">
+    <div class="disneyForm-title" style="margin-left: 20px; margin-top: 20px;">
+        <h1 style="color: black;">Formulario Disney+</h1>
+    </div>
+    <div class="disneyFormulario" style="margin-left: 20px; margin-top: 20px;">
+        <form action="{% url 'disneyForm' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ formulario.as_table }}
+            </table>
+            <input type="submit" value="Agregar">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

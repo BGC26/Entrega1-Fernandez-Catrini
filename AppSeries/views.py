@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from AppSeries.forms import *
 
 # Create your views here.
 
@@ -29,3 +30,39 @@ def disneyplus(request):
     seriedisney4.save()
     listadisney = [seriedisney1, seriedisney2, seriedisney3, seriedisney4]
     return render(request, "disneyplus.html", {'listadisney':listadisney})
+
+def hboForm(request):
+    if request.method == "POST":
+        form = HBOForm(request.POST)
+        print(form)
+        if form.is_valid():
+            informacion = form.cleaned_data
+            print(informacion)
+            title = informacion["title"]
+            qualification = informacion["qualification"]
+            photo = informacion["photo"]
+            hbo = HBO(title=title, qualification=qualification, photo=photo)
+            hbo.save()
+            return render (request, "home.html")
+
+    else:
+        formulario = HBOForm()
+        return render(request, "hboForm.html", {"formulario":formulario})
+
+def disneyForm(request):
+    if request.method == "POST":
+        form = DisneyForm(request.POST)
+        print(form)
+        if form.is_valid():
+            informacion = form.cleaned_data
+            print(informacion)
+            title = informacion["title"]
+            qualification = informacion["qualification"]
+            photo = informacion["photo"]
+            disney = Disney(title=title, qualification=qualification, photo=photo)
+            disney.save()
+            return render (request, "home.html")
+
+    else:
+        formulario = DisneyForm()
+        return render(request, "disneyForm.html", {"formulario":formulario})
