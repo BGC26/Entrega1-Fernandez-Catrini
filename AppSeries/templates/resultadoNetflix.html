@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div>
+    <div style="margin-left: 20px; margin-top: 20px;">
+        <h1 style="color: black;">Resultado de búsqueda:</h1>
+    </div>
+    <div style="margin-left: 40px;">
+        {% if netflixseries %}
+        
+        {% for serie in netflixseries %}
+        <div style="margin-bottom: 50px;">
+            <div>
+                <img width="400px" height="300px" src="{{ serie.photo }}" alt="">
+                <p style="color:white; font-weight: bold; opacity: 0.5;">IMDB {{ serie.qualification }}</p>
+                <h5 style="color:white; font-weight: bold;">{{ serie.title }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+        
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

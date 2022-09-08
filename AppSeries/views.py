@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import *
 from AppSeries.forms import *
 
@@ -66,3 +67,62 @@ def disneyForm(request):
     else:
         formulario = DisneyForm()
         return render(request, "disneyForm.html", {"formulario":formulario})
+
+def buscarSerieNetflix(request):
+    if request.GET["title"]:
+        title = request.GET["title"]
+        netflixseries = Netflix.objects.filter(title__icontains = title)
+        return render(request, "resultadoNetflix.html", {"netflixseries": netflixseries, "title": title})
+
+    else:
+        respuesta = "No has enviado datos"
+    
+    return HttpResponse(respuesta)
+
+def busquedaNetflix(request):
+    return render(request, "busquedaNetflix.html")
+
+def buscarSeriePrime(request):
+    if request.GET["title"]:
+        title = request.GET["title"]
+        primeseries = Prime.objects.filter(title__icontains = title)
+        return render(request, "resultadoPrime.html", {"primeseries": primeseries, "title": title})
+
+    else:
+        respuesta = "No has enviado datos"
+    
+    return HttpResponse(respuesta)
+
+def busquedaPrime(request):
+    return render(request, "busquedaPrime.html")
+
+def buscarSerieHBO(request):
+    if request.GET["title"]:
+        title = request.GET["title"]
+        hboseries = HBO.objects.filter(title__icontains = title)
+        return render(request, "resultadoHBO.html", {"hboseries": hboseries, "title": title})
+
+    else:
+        respuesta = "No has enviado datos"
+    
+    return HttpResponse(respuesta)
+
+
+def busquedaHBO(request):
+    return render(request, "busquedaHBO.html")
+
+
+def buscarSerieDisney(request):
+    if request.GET["title"]:
+        title = request.GET["title"]
+        disneyseries = Disney.objects.filter(title__icontains = title)
+        return render(request, "resultadoDisney.html", {"disneyseries": disneyseries, "title": title})
+
+    else:
+        respuesta = "No has enviado datos"
+    
+    return HttpResponse(respuesta)
+
+
+def busquedaDisney(request):
+    return render(request, "busquedaDisney.html")

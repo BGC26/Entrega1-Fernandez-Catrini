@@ -7,4 +7,12 @@ urlpatterns = [
     path('disneyplus', disneyplus, name='disneyplus'),
     path('hboForm', hboForm, name='hboForm'),
     path('disneyForm', disneyForm, name='disneyForm'),
+    path('busquedaNetflix', busquedaNetflix, name='busquedaNetflix'),
+    path('buscarSerieNetflix/', buscarSerieNetflix),
+    path('busquedaPrime', busquedaPrime, name='busquedaPrime'),
+    path('buscarSeriePrime/', buscarSeriePrime),
+    path('busquedaHBO', busquedaHBO, name='busquedaHBO'),
+    path('buscarSerieHBO/', buscarSerieHBO),
+    path('busquedaDisney', busquedaDisney, name='busquedaDisney'),
+    path('buscarSerieDisney/', buscarSerieDisney),
 ]
