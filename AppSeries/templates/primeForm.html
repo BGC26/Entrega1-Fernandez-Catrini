@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="primeForm-container">
+    <div class="primeForm-title" style="margin-left: 20px; margin-top: 20px;">
+        <h1 style="color: black;">Formulario Prime Video</h1>
+    </div>
+    <form action="{% url 'primeForm' %}" method="POST"> {% csrf_token %}
+        <table>
+            {{ formulario.as_table }}
+        </table>
+        <input type="submit" value="Agregar">
+    </form>
+    
+</div>
+
+{% endblock %}

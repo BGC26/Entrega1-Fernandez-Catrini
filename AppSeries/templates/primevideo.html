@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="prime-container" style="position: relative; justify-content: center; width: 100%; min-height: 100vh; overflow: hidden; background-image: url(https://wallpaperstock.net/wallpapers/thumbs1/29345hd.jpg); background-repeat: no-repeat; background-position-x: center; background-position-y: center; background-size: cover; background-attachment: fixed;">
+    <div class="prime-title" style="margin-left: 20px; margin-top: 20px;">
+        <h1 style="color: white;">Prime Video</h1>
+    </div>
+    <div class="prime-list" style="margin-left: 40px;">
+
+        {% for seriesPrime in listaprime %}
+
+        <div class="prime-object" style="margin-bottom: 50px;">
+            <div class="prime-data">
+                <img class="prime-object-img" width="400px" height="300px" src="{{ seriesPrime.photo }}" alt="">
+                <p style="color:white ; font-weight: bold; opacity: 0.5;">IMDB {{ seriesPrime.qualification }}</p>
+                <h5 style="color:white; font-weight: bold;">{{ seriesPrime.title }}</h5>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+    <div class="prime-button" style="margin-bottom: 40px; text-align: center;">
+        <a href="{% url 'primeForm' %}"><button style="background-color: #0d6efd; color: white; font-weight: bold;">Agregar serie</button></a>
+    </div>
+</div>
+
+{% endblock %}

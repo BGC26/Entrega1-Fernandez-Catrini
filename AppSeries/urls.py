@@ -3,6 +3,10 @@ from AppSeries.views import *
 
 urlpatterns = [
     path('', home, name='home'),
+    path('netflix', netflix, name='netflix'),
+    path('primevideo', primevideo, name='primevideo'),
+    path('netflixForm', netflixForm, name='netflixForm'),
+    path('primeForm', primeForm, name='primeForm'),
     path('hbomax', hbomax, name='hbomax'),
     path('disneyplus', disneyplus, name='disneyplus'),
     path('hboForm', hboForm, name='hboForm'),

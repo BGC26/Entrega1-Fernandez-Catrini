@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="netflix-container" style="position: relative; justify-content: center; width: 100%; min-height: 100vh; overflow: hidden; background-image: url(https://wallpaperstock.net/wallpapers/thumbs1/29345hd.jpg); background-repeat: no-repeat; background-position-x: center; background-position-y: center; background-size: cover; background-attachment: fixed;">
+    <div class="netflix-title" style="margin-left: 20px; margin-top: 20px;">
+        <h1 style="color: white;">Netflix</h1>
+    </div>
+    <div class="netflix-list" style="margin-left: 40px;">
+
+        {% for seriesNetflix in listanetflix %}
+
+        <div class="netflix-object" style="margin-bottom: 50px;">
+            <div class="netflix-data">
+                <img class="netflix-object-img" width="400px" height="300px" src="{{ seriesNetflix.photo }}" alt="">
+                <p style="color:white ; font-weight: bold; opacity: 0.5;">IMDB {{ seriesNetflix.qualification }}</p>
+                <h5 style="color:white; font-weight: bold;">{{ seriesNetflix.title }}</h5>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+    <div class="netflix-button" style="margin-bottom: 40px; text-align: center;">
+        <a href="{% url 'netflixForm' %}"><button style="background-color: red; color: white; font-weight: bold;">Agregar serie</button></a>
+    </div>
+</div>
+
+{% endblock %}
